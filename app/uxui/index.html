@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumora UX&UI - Break Page: Bem-estar Corporativo com IA</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+
+</head>
+<body class="bg-slate-50 bg-slate-950 dark:bg-slate-950 dark:text-slate-50 min-h-screen text-slate-50 text-slate-900 transition-colors">>
+  <header class="border-b border-slate-800 bg-slate-950/90 sticky top-0 z-40 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-sm font-bold">L</span>
+        <span class="text-sm font-semibold tracking-wide uppercase text-slate-200">Lumora UX&UI</span>
+      </div>
+      <nav class="hidden md:flex gap-6 text-xs font-medium text-slate-300">
+        <a href="#tema" class="hover:text-blue-400">Tema</a>
+        <a href="#publico" class="hover:text-blue-400">Público-alvo</a>
+        <a href="#heuristicas" class="hover:text-blue-400">Mapa de heurísticas</a>
+        <a href="#valor" class="hover:text-blue-400">Valor para o usuário</a>
+        <a href="#prompt-ia" class="hover:text-blue-400">Prompt de IA</a>
+        <a href="#imagem-ia" class="hover:text-blue-400">Imagem gerada</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-24">
+    <!-- 1. Tema -->
+    <section id="tema" class="grid gap-10 md:grid-cols-2 items-center">
+      <div>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-3">One-page UX & UI</p>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">
+          Break Page: <span class="text-blue-400">Bem-estar Corporativo com IA</span>
+        </h1>
+        <p class="text-sm md:text-base text-slate-300 mb-4">
+          Esta one-page apresenta a análise de UX & UI da funcionalidade "Página de Break" da plataforma Lumora, 
+          uma solução corporativa que conecta colaboradores para momentos de pausa produtivos através de atividades 
+          em grupo e pareamento inteligente baseado em IA.
+        </p>
+        <p class="text-sm text-slate-400">
+          O objetivo desta análise é documentar as decisões de design, aplicar as heurísticas de Nielsen e propor 
+          melhorias para otimizar a experiência do usuário, reduzindo fricção e aumentando o engajamento em atividades 
+          de bem-estar corporativo.
+        </p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-600/20 via-slate-900 to-purple-500/10 rounded-2xl border border-slate-800 p-6">
+        <h2 class="text-sm font-semibold mb-3 text-slate-100">Resumo da solução</h2>
+        <dl class="space-y-3 text-xs text-slate-300">
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate-400">Plataforma</dt>
+            <dd class="font-medium text-slate-100 text-right">Lumora – Intranet corporativa para times híbridos</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate-400">Funcionalidade</dt>
+            <dd class="font-medium text-slate-100 text-right">Break Page com atividades em grupo e pareamento de IA</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate-400">Objetivo de UX</dt>
+            <dd class="font-medium text-slate-100 text-right">Encontrar parceiro e iniciar atividade em até 2 cliques</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate-400">Papel desta página</dt>
+            <dd class="font-medium text-slate-100 text-right">Documentar decisões de UX & UI e heurísticas aplicadas</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2. Público-alvo -->
+    <section id="publico" class="space-y-6">
+      <header>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-2">Público-alvo</p>
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">Quem estamos ajudando?</h2>
+        <p class="text-sm text-slate-300 max-w-2xl">
+          A Página de Break foi pensada para colaboradores de empresas que utilizam a Lumora, com foco especial em 
+          profissionais que trabalham em ambientes híbridos ou remotos e buscam momentos de pausa de qualidade para 
+          desconectar do trabalho e interagir com colegas de forma leve e descontraída.
+        </p>
+      </header>
+      <div class="grid gap-4 md:grid-cols-3">
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="text-sm font-semibold mb-1">Colaboradores em trabalho híbrido/remoto</h3>
+          <p class="text-xs text-slate-300 mb-2">
+            Profissionais que trabalham parcialmente ou totalmente remotos e enfrentam dificuldade em se desconectar 
+            e interagir socialmente com colegas.
+          </p>
+          <ul class="text-[11px] text-slate-400 space-y-1 list-disc list-inside">
+            <li>Precisam de momentos estruturados de pausa.</li>
+            <li>Buscam conexão genuína com colegas de forma espontânea.</li>
+          </ul>
+        </article>
+
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="text-sm font-semibold mb-1">Gestores de RH e bem-estar</h3>
+          <p class="text-xs text-slate-300 mb-2">
+            Líderes de recursos humanos interessados em promover saúde mental, engajamento e cultura corporativa 
+            através de atividades de bem-estar estruturadas.
+          </p>
+          <ul class="text-[11px] text-slate-400 space-y-1 list-disc list-inside">
+            <li>Precisam de dados sobre participação e engajamento.</li>
+            <li>Querem facilitar conexões entre colaboradores.</li>
+          </ul>
+        </article>
+
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="text-sm font-semibold mb-1">Líderes de equipe</h3>
+          <p class="text-xs text-slate-300 mb-2">
+            Gestores que buscam fortalecer relacionamentos dentro de suas equipes e incentivar momentos de 
+            descompressão que melhorem a produtividade e o clima organizacional.
+          </p>
+          <ul class="text-[11px] text-slate-400 space-y-1 list-disc list-inside">
+            <li>Valorizam ferramentas que promovem coesão.</li>
+            <li>Buscam aumentar a retenção de talentos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Mapa de heurísticas -->
+    <section id="heuristicas" class="space-y-6">
+      <header>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-2">Mapa de heurísticas</p>
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">Como as heurísticas de Nielsen guiam a Break Page</h2>
+        <p class="text-sm text-slate-300 max-w-2xl">
+          As 10 heurísticas de usabilidade de Jakob Nielsen foram aplicadas como checklist para orientar decisões de 
+          layout, microcopy, comportamento do pareamento de IA e fluxo de interação. Abaixo, cada heurística é mapeada 
+          com sua aplicação prática na Página de Break.
+        </p>
+      </header>
+      <div class="space-y-4">
+        <!-- Heurística 1 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">1. Visibilidade do status do sistema</h3>
+              <p class="text-[11px] text-slate-400">O sistema deve manter os usuários informados sobre o que está acontecendo.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Indicador visual claro durante pareamento: "Buscando parceiros...", "Pareamento concluído!"</li>
+                <li>Status de disponibilidade dos colegas (online, em break, ocupado) sempre visível.</li>
+                <li>Feedback em tempo real quando uma atividade é iniciada ou cancelada.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 2 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">2. Correspondência entre sistema e mundo real</h3>
+              <p class="text-[11px] text-slate-400">O sistema deve falar a linguagem do usuário, com conceitos familiares.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Termos amigáveis e motivacionais: "Yoga para Relaxar", "Trivia de 5 Minutos", "Meditação Guiada".</li>
+                <li>Pareamento de IA explicado como "encontrar seu parceiro de break ideal".</li>
+                <li>Ícones intuitivos que representam cada atividade (yoga, jogo, música, etc).</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 3 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">3. Controle e liberdade do usuário</h3>
+              <p class="text-[11px] text-slate-400">Os usuários precisam de "saídas de emergência" claramente marcadas.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Botão "Cancelar Pareamento" ou "Sair da Atividade" sempre visível e funcional.</li>
+                <li>Possibilidade de voltar à tela inicial sem penalidades.</li>
+                <li>Confirmação antes de sair de uma atividade em andamento.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 4 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">4. Consistência e padrões</h3>
+              <p class="text-[11px] text-slate-400">Diferentes palavras e ações devem significar a mesma coisa.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Design system consistente com o restante da Lumora (cores azul #3b82f6 e roxo #8b5cf6).</li>
+                <li>Navegação para "Break Page" segue o padrão das outras seções (Feed, Tarefas).</li>
+                <li>Tipografia, espaçamento e ícones padronizados em toda a interface.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 5 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">5. Prevenção de erros</h3>
+              <p class="text-[11px] text-slate-400">Melhor que boas mensagens de erro é um design que previne problemas.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Verificar pré-requisitos antes de iniciar atividade (ex: microfone para Karaokê).</li>
+                <li>Confirmação antes de sair de uma atividade em andamento.</li>
+                <li>Validação de compatibilidade antes de pareamento.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 6 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">6. Reconhecimento em vez de recordação</h3>
+              <p class="text-[11px] text-slate-400">Minimizar a carga de memória tornando objetos e ações visíveis.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Histórico de breaks recentes e colegas com quem o usuário interagiu.</li>
+                <li>Sugestões de atividades baseadas no histórico.</li>
+                <li>Preferências salvas automaticamente (sem exigir memorização).</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 7 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">7. Flexibilidade e eficiência de uso</h3>
+              <p class="text-[11px] text-slate-400">Permitir que o sistema seja usado de diferentes formas.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>"Break Rápido" para usuários experientes (pareamento imediato com preferências salvas).</li>
+                <li>"Break Personalizado" para novatos (mais opções de filtro e orientação).</li>
+                <li>Atalhos de teclado para usuários avançados.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 8 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">8. Estética e design minimalista</h3>
+              <p class="text-[11px] text-slate-400">Diálogos não devem conter informações irrelevantes.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Layout limpo, destacando apenas atividades disponíveis e botão de iniciar break.</li>
+                <li>Evitar textos longos; usar ícones claros e bem definidos.</li>
+                <li>Espaçamento generoso entre elementos para reduzir poluição visual.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 9 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">9. Ajuda e documentação</h3>
+              <p class="text-[11px] text-slate-400">Fornecer ajuda e documentação quando necessário.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Ícone de ajuda (?) que exibe tutorial sobre pareamento inteligente de IA.</li>
+                <li>Breve explicação das regras de cada atividade.</li>
+                <li>FAQ acessível sobre como funciona o sistema de pareamento.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Heurística 10 -->
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <div class="grid gap-4 md:grid-cols-3">
+            <div>
+              <h3 class="text-sm font-semibold mb-1 text-blue-400">10. Ajuda em reconhecer, diagnosticar e recuperar-se de erros</h3>
+              <p class="text-[11px] text-slate-400">Mensagens de erro devem ser claras e sugerir soluções.</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-xs text-slate-300 mb-2"><strong>Aplicação na Break Page:</strong></p>
+              <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
+                <li>Se pareamento falhar: "Não foi possível encontrar um parceiro compatível no momento. Tente novamente em 5 minutos ou escolha uma atividade individual."</li>
+                <li>Mensagens em linguagem clara, sem códigos de erro técnicos.</li>
+                <li>Sugestões construtivas para resolver o problema.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Valor para o usuário -->
+    <section id="valor" class="space-y-6">
+      <header>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-2">Valor para o usuário</p>
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">Jornada pensada para reduzir fricção e aumentar bem-estar</h2>
+        <p class="text-sm text-slate-300 max-w-2xl">
+          A Break Page foi desenhada para minimizar o esforço cognitivo e a fricção na jornada do usuário. 
+          O pareamento inteligente de IA elimina a necessidade de buscar manualmente por parceiros, enquanto 
+          o design minimalista facilita a tomada de decisão em momentos de pausa.
+        </p>
+      </header>
+      <div class="grid gap-4 md:grid-cols-3 text-[11px] text-slate-300">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="font-semibold mb-1">Entrada: Descoberta</h3>
+          <p>Usuário acessa a Lumora, clica em "Break" e vê imediatamente as atividades disponíveis com descrições claras 
+          e ícones intuitivos. O objetivo é compreender as opções em menos de 3 segundos.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="font-semibold mb-1">Interação: Pareamento</h3>
+          <p>Após escolher uma atividade, o sistema de IA busca automaticamente parceiros compatíveis. 
+          O usuário recebe feedback em tempo real e pode confirmar ou cancelar sem penalidades.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 class="font-semibold mb-1">Resultado: Conexão</h3>
+          <p>Com um parceiro encontrado, o usuário inicia a atividade. Após a conclusão, o sistema oferece 
+          opção de repetir, explorar outras atividades ou voltar ao trabalho, mantendo o momentum.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Prompt de IA -->
+    <section id="prompt-ia" class="space-y-4">
+      <header>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-2">Prompt de IA</p>
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">Prompt utilizado para gerar a imagem conceitual</h2>
+        <p class="text-sm text-slate-300 max-w-2xl">
+          A imagem principal deste estudo de UX & UI foi gerada com IA generativa, reforçando o conceito de 
+          bem-estar corporativo, tecnologia e conexão humana. O prompt foi cuidadosamente elaborado para capturar 
+          a essência da Break Page: dois profissionais em atividades diferentes, conectados por inteligência artificial.
+        </p>
+      </header>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">Prompt utilizado</p>
+        <pre class="text-xs text-slate-200 whitespace-pre-wrap font-mono bg-slate-950/60 rounded-xl p-3 border border-slate-800">
+"A minimalist, modern, and clean UI design for a corporate 'Break Page' application. 
+The scene should feature two diverse professionals, one meditating and one laughing during 
+a quick trivia game, connected by a subtle, glowing, blue-and-purple neural network line, 
+symbolizing the AI-powered smart pairing. The background is a soft, blurred office environment. 
+Use the Lumora brand colors: primary blue (#3b82f6) and secondary purple (#8b5cf6). 
+The style should be a flat, professional, vector illustration with a focus on well-being 
+and technology integration. Aspect Ratio 16:9."
+        </pre>
+      </div>
+    </section>
+
+    <!-- 6. Imagem gerada -->
+    <section id="imagem-ia" class="space-y-4">
+      <header>
+        <p class="text-xs uppercase tracking-[0.22em] text-blue-400 mb-2">Imagem gerada</p>
+        <h2 class="text-xl md:text-2xl font-semibold mb-2">Visual conceitual da Break Page</h2>
+        <p class="text-sm text-slate-300 max-w-2xl">
+          A imagem abaixo representa visualmente o conceito da Break Page do Lumora, destacando a interconexão 
+          entre profissionais através de IA e bem-estar. Ela pode ser utilizada na apresentação em slides, 
+          como referência de direção de arte e em materiais de comunicação interna sobre a funcionalidade.
+        </p>
+      </header>
+      <figure class="rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden">
+        <img src="img/imagem.png" alt="Imagem conceitual gerada por IA representando dois profissionais conectados por IA em atividades de bem-estar corporativo" class="w-full object-cover">
+        <figcaption class="text-[11px] text-slate-400 px-4 py-2 border-t border-slate-800">
+          Mockup gerado com IA para representar o clima visual e conceitual da Break Page do Lumora.
+        </figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-4 mt-10">
+    <div class="max-w-6xl mx-auto px-4 text-[11px] text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
+      <span>Lumora – One-page UX & UI para Break Page: Bem-estar Corporativo com IA.</span>
+      <span>Página localizada em <code class="bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">/uxui/</code></span>
+    </div>
+  </footer>
+</body>
+</html>

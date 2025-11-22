@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumora - Plataforma Corporativa</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <script>
+
+    (function () {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body
+  class="bg-slate-50 dark:bg-slate-900 dark:bg-slate-950 dark:text-slate-50 min-h-screen text-slate-900 transition-colors">
+  >
+  <div id="app">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 z-50 shadow-sm">
+      <div class="h-full px-4 flex items-center justify-between max-w-7xl mx-auto">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 flex items-center justify-center flex-shrink-0">
+            <img src="./assets/img/lumora-logo.png" alt="Lumora" class="w-8 h-8 object-contain">
+          </div>
+          <span class="font-bold text-lg hidden sm:inline text-slate-900 dark:text-white">Lumora</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Botão menu hambúrguer (só mobile) -->
+          <button id="mobileMenuToggle"
+            class="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            aria-label="Abrir menu">
+            <span class="block w-5 h-0.5 bg-slate-800 dark:bg-slate-100 rounded-sm"></span>
+            <span class="block w-5 h-0.5 bg-slate-800 dark:bg-slate-100 rounded-sm my-0.5"></span>
+            <span class="block w-5 h-0.5 bg-slate-800 dark:bg-slate-100 rounded-sm"></span>
+          </button>
+
+          <button id="themeToggle" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            aria-label="Alternar tema" title="Alternar tema">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+
+          <button id="profileBtn" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            aria-label="Perfil">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Menu mobile (abre abaixo da barra fixa) -->
+    <div id="mobileMenu"
+      class="md:hidden fixed top-16 inset-x-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-sm hidden z-40">
+      <div class="px-4 py-3 space-y-1">
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium transition-colors"
+          data-page="feed">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+            </path>
+          </svg>
+          Feed
+        </button>
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+          data-page="professions">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 4-2.222M12 21l9-5-4-2.222" />
+          </svg>
+          Profissões
+        </button>
+
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+          data-page="tasks">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+            </path>
+          </svg>
+          Esteira
+        </button>
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+          data-page="break">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Break
+        </button>
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+          data-page="chat">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+            </path>
+          </svg>
+          Chat
+        </button>
+        <button
+          class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center"
+          data-page="uxui">
+          <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M12 3a9 9 0 100 18 9 9 0 000-18z" />
+          </svg>
+          <span>Saiba Mais</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex pt-16 h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 overflow-y-auto hidden md:block">
+        <div class="p-4 space-y-2">
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium transition-colors"
+            data-page="feed">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+              </path>
+            </svg>
+            Feed
+          </button>
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            data-page="professions">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 4-2.222M12 21l9-5-4-2.222" />
+            </svg>
+            Profissões
+          </button>
+
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            data-page="tasks">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+              </path>
+            </svg>
+            Esteira
+          </button>
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            data-page="break">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Break
+          </button>
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            data-page="chat">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+              </path>
+            </svg>
+            Chat
+          </button>
+
+          <button
+            class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center"
+            data-page="uxui">
+            <svg class="w-5 h-5 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M12 3a9 9 0 100 18 9 9 0 000-18z" />
+            </svg>
+            <span>Saiba Mais</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Area -->
+      <main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-900">
+        <!-- Feed Page -->
+        <section id="feed-page" class="page-content p-4 md:p-6">
+          <div class="max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Feed</h1>
+
+            <!-- New Post Form -->
+            <div class="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4 mb-6">
+              <textarea id="newPostText" placeholder="O que está acontecendo?"
+                class="w-full bg-transparent resize-none focus:outline-none text-sm placeholder-slate-400 dark:placeholder-slate-500"
+                rows="3"></textarea>
+              <div class="flex justify-end gap-2 mt-3">
+                <button
+                  class="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">Cancelar</button>
+                <button id="postBtn"
+                  class="px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Postar</button>
+              </div>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="feed-list" class="space-y-4">
+              <!-- Posts will be rendered here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Tasks Page -->
+        <section id="tasks-page" class="page-content hidden p-4 md:p-6">
+          <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Esteira de Tarefas</h1>
+
+            <!-- Task Filters -->
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+              <button
+                class="task-filter px-4 py-2 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 whitespace-nowrap"
+                data-filter="all">Todas</button>
+              <button
+                class="task-filter px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700 whitespace-nowrap"
+                data-filter="assigned">Atribuídas a mim</button>
+              <button
+                class="task-filter px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700 whitespace-nowrap"
+                data-filter="completed">Concluídas</button>
+            </div>
+
+            <!-- Tasks List -->
+            <div id="tasks-list" class="space-y-3">
+              <!-- Tasks will be rendered here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Professions Page -->
+        <section id="professions-page" class="page-content hidden p-4 md:p-6">
+          <!-- Profissões do Futuro (SPA GS) -->
+          <section id="professions-section" aria-labelledby="professions-title" class="mt-10">
+            <div class="max-w-2xl mx-auto">
+              <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-4">
+                <div>
+                  <h2 id="professions-title" class="text-2xl font-bold">Profissões do futuro em Comex & Logística</h2>
+                  <p class="text-sm text-slate-600 dark:text-slate-400">
+                    Explore 40 profissões ligadas a comércio exterior, logística internacional e tecnologia.
+                  </p>
+                </div>
+                <div class="w-full md:w-64">
+                  <label for="professions-search" class="sr-only">Buscar profissão</label>
+                  <input id="professions-search" type="text" placeholder="Buscar por título..."
+                    class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+              </div>
+
+              <!-- Filtros -->
+              <div class="flex flex-wrap gap-2 mb-4" aria-label="Filtrar por área">
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="all">
+                  Todas as áreas
+                </button>
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="Tecnologia & Dados">
+                  Tecnologia & Dados
+                </button>
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="Operações & Logística">
+                  Operações & Logística
+                </button>
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="Negócios & Estratégia Global">
+                  Negócios & Estratégia Global
+                </button>
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="Sustentabilidade & Compliance">
+                  Sustentabilidade & Compliance
+                </button>
+                <button type="button"
+                  class="profession-area-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-area="Experiência do Cliente & Pessoas">
+                  Experiência do Cliente & Pessoas
+                </button>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-6" aria-label="Filtrar por demanda">
+                <button type="button"
+                  class="profession-demand-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-demand="all">
+                  Todas as demandas
+                </button>
+                <button type="button"
+                  class="profession-demand-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-demand="Alta">
+                  Alta demanda
+                </button>
+                <button type="button"
+                  class="profession-demand-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-demand="Média">
+                  Demanda média
+                </button>
+                <button type="button"
+                  class="profession-demand-filter px-3 py-1.5 rounded-full text-xs border border-slate-300 dark:border-slate-600"
+                  data-demand="Baixa">
+                  Demanda baixa
+                </button>
+              </div>
+
+              <!-- Lista de profissões -->
+              <div id="professions-list" class="grid gap-4 sm:grid-cols-2" aria-live="polite">
+                <!-- Cards de profissões serão renderizados aqui -->
+              </div>
+            </div>
+          </section>
+        </section>
+
+
+        <section id="uxui-page" class="page-content hidden p-4 md:p-6">
+          <div class="max-w-6xl mx-auto">
+
+            <!-- 1. Tema -->
+            <section id="tema" class="grid gap-10 md:grid-cols-2 items-center">
+              <div>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-3">One-page UX &amp;
+                  UI</p>
+                <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-slate-900 dark:text-slate-50">
+                  Break Page: <span class="text-blue-600 dark:text-blue-400">Bem-estar Corporativo com IA</span>
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-4">
+                  Esta one-page apresenta a análise de UX &amp; UI da funcionalidade "Página de Break" da plataforma
+                  Lumora,
+                  uma solução corporativa que conecta colaboradores para momentos de pausa produtivos através de
+                  atividades
+                  em grupo e pareamento inteligente baseado em IA.
+                </p>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  O objetivo desta análise é documentar as decisões de design, aplicar as heurísticas de Nielsen e
+                  propor
+                  melhorias para otimizar a experiência do usuário, reduzindo fricção e aumentando o engajamento em
+                  atividades
+                  de bem-estar corporativo.
+                </p>
+              </div>
+              <div
+                class="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-600/20 dark:via-slate-900 dark:to-purple-500/10 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+                <h2 class="text-sm font-semibold mb-3 text-slate-900 dark:text-slate-100">Resumo da solução</h2>
+                <dl class="space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                  <div class="flex justify-between gap-4">
+                    <dt class="text-slate-500 dark:text-slate-400">Plataforma</dt>
+                    <dd class="font-medium text-slate-900 dark:text-slate-100 text-right">
+                      Lumora – Intranet corporativa para times híbridos
+                    </dd>
+                  </div>
+                  <div class="flex justify-between gap-4">
+                    <dt class="text-slate-500 dark:text-slate-400">Funcionalidade</dt>
+                    <dd class="font-medium text-slate-900 dark:text-slate-100 text-right">
+                      Break Page com atividades em grupo e pareamento de IA
+                    </dd>
+                  </div>
+                  <div class="flex justify-between gap-4">
+                    <dt class="text-slate-500 dark:text-slate-400">Objetivo de UX</dt>
+                    <dd class="font-medium text-slate-900 dark:text-slate-100 text-right">
+                      Encontrar parceiro e iniciar atividade em até 2 cliques
+                    </dd>
+                  </div>
+                  <div class="flex justify-between gap-4">
+                    <dt class="text-slate-500 dark:text-slate-400">Papel desta página</dt>
+                    <dd class="font-medium text-slate-900 dark:text-slate-100 text-right">
+                      Documentar decisões de UX &amp; UI e heurísticas aplicadas
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </section>
+
+            <!-- 2. Público-alvo -->
+            <section id="publico" class="space-y-6 mt-16">
+              <header>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-2">Público-alvo</p>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-50">Quem estamos
+                  ajudando?</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
+                  A Página de Break foi pensada para colaboradores de empresas que utilizam a Lumora, com foco especial
+                  em
+                  profissionais que trabalham em ambientes híbridos ou remotos e buscam momentos de pausa de qualidade
+                  para
+                  desconectar do trabalho e interagir com colegas de forma leve e descontraída.
+                </p>
+              </header>
+              <div class="grid gap-4 md:grid-cols-3">
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="text-sm font-semibold mb-1 text-slate-900 dark:text-slate-100">
+                    Colaboradores em trabalho híbrido/remoto
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mb-2">
+                    Profissionais que trabalham parcialmente ou totalmente remotos e enfrentam dificuldade em se
+                    desconectar
+                    e interagir socialmente com colegas.
+                  </p>
+                  <ul class="text-[11px] text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
+                    <li>Precisam de momentos estruturados de pausa.</li>
+                    <li>Buscam conexão genuína com colegas de forma espontânea.</li>
+                  </ul>
+                </article>
+
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="text-sm font-semibold mb-1 text-slate-900 dark:text-slate-100">
+                    Gestores de RH e bem-estar
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mb-2">
+                    Líderes de recursos humanos interessados em promover saúde mental, engajamento e cultura corporativa
+                    através de atividades de bem-estar estruturadas.
+                  </p>
+                  <ul class="text-[11px] text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
+                    <li>Precisam de dados sobre participação e engajamento.</li>
+                    <li>Querem facilitar conexões entre colaboradores.</li>
+                  </ul>
+                </article>
+
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="text-sm font-semibold mb-1 text-slate-900 dark:text-slate-100">
+                    Líderes de equipe
+                  </h3>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 mb-2">
+                    Gestores que buscam fortalecer relacionamentos dentro de suas equipes e incentivar momentos de
+                    descompressão que melhorem a produtividade e o clima organizacional.
+                  </p>
+                  <ul class="text-[11px] text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
+                    <li>Valorizam ferramentas que promovem coesão.</li>
+                    <li>Buscam aumentar a retenção de talentos.</li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <!-- 3. Mapa de heurísticas -->
+            <section id="heuristicas" class="space-y-6 mt-16">
+              <header>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-2">Mapa de heurísticas
+                </p>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-50">
+                  Como as heurísticas de Nielsen guiam a Break Page
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
+                  As 10 heurísticas de usabilidade de Jakob Nielsen foram aplicadas como checklist para orientar
+                  decisões de
+                  layout, microcopy, comportamento do pareamento de IA e fluxo de interação. Abaixo, cada heurística é
+                  mapeada
+                  com sua aplicação prática na Página de Break.
+                </p>
+              </header>
+              <div class="space-y-4">
+
+                <!-- Heurística 1 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        1. Visibilidade do status do sistema
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        O sistema deve manter os usuários informados sobre o que está acontecendo.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Indicador visual claro durante pareamento: "Buscando parceiros...", "Pareamento concluído!".
+                        </li>
+                        <li>Status de disponibilidade dos colegas (online, em break, ocupado) sempre visível.</li>
+                        <li>Feedback em tempo real quando uma atividade é iniciada ou cancelada.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 2 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        2. Correspondência entre sistema e mundo real
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        O sistema deve falar a linguagem do usuário, com conceitos familiares.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Termos amigáveis e motivacionais: "Yoga para Relaxar", "Trivia de 5 Minutos", "Meditação
+                          Guiada".</li>
+                        <li>Pareamento de IA explicado como "encontrar seu parceiro de break ideal".</li>
+                        <li>Ícones intuitivos que representam cada atividade (yoga, jogo, música etc.).</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 3 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        3. Controle e liberdade do usuário
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Os usuários precisam de "saídas de emergência" claramente marcadas.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Botão "Cancelar Pareamento" ou "Sair da Atividade" sempre visível e funcional.</li>
+                        <li>Possibilidade de voltar à tela inicial sem penalidades.</li>
+                        <li>Confirmação antes de sair de uma atividade em andamento.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 4 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        4. Consistência e padrões
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Diferentes palavras e ações devem significar a mesma coisa.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Design system consistente com o restante da Lumora (cores azul #3b82f6 e roxo #8b5cf6).</li>
+                        <li>Navegação para "Break Page" segue o padrão das outras seções (Feed, Tarefas).</li>
+                        <li>Tipografia, espaçamento e ícones padronizados em toda a interface.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 5 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        5. Prevenção de erros
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Melhor que boas mensagens de erro é um design que previne problemas.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Verificar pré-requisitos antes de iniciar atividade (ex.: microfone para Karaokê).</li>
+                        <li>Confirmação antes de sair de uma atividade em andamento.</li>
+                        <li>Validação de compatibilidade antes de pareamento.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 6 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        6. Reconhecimento em vez de recordação
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Minimizar a carga de memória tornando objetos e ações visíveis.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Histórico de breaks recentes e colegas com quem o usuário interagiu.</li>
+                        <li>Sugestões de atividades baseadas no histórico.</li>
+                        <li>Preferências salvas automaticamente (sem exigir memorização).</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 7 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        7. Flexibilidade e eficiência de uso
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Permitir que o sistema seja usado de diferentes formas.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>"Break Rápido" para usuários experientes (pareamento imediato com preferências salvas).</li>
+                        <li>"Break Personalizado" para novatos (mais opções de filtro e orientação).</li>
+                        <li>Atalhos de teclado para usuários avançados.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 8 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        8. Estética e design minimalista
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Diálogos não devem conter informações irrelevantes.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Layout limpo, destacando apenas atividades disponíveis e botão de iniciar break.</li>
+                        <li>Evitar textos longos; usar ícones claros e bem definidos.</li>
+                        <li>Espaçamento generoso entre elementos para reduzir poluição visual.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 9 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        9. Ajuda e documentação
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Fornecer ajuda e documentação quando necessário.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Ícone de ajuda (?) que exibe tutorial sobre pareamento inteligente de IA.</li>
+                        <li>Breve explicação das regras de cada atividade.</li>
+                        <li>FAQ acessível sobre como funciona o sistema de pareamento.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Heurística 10 -->
+                <article
+                  class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <div class="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <h3 class="text-sm font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                        10. Ajuda em reconhecer, diagnosticar e recuperar-se de erros
+                      </h3>
+                      <p class="text-[11px] text-slate-600 dark:text-slate-400">
+                        Mensagens de erro devem ser claras e sugerir soluções.
+                      </p>
+                    </div>
+                    <div class="md:col-span-2">
+                      <p class="text-xs text-slate-700 dark:text-slate-300 mb-2">
+                        <strong>Aplicação na Break Page:</strong>
+                      </p>
+                      <ul class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li>Se pareamento falhar: "Não foi possível encontrar um parceiro compatível no momento. Tente
+                          novamente em 5 minutos ou escolha uma atividade individual."</li>
+                        <li>Mensagens em linguagem clara, sem códigos de erro técnicos.</li>
+                        <li>Sugestões construtivas para resolver o problema.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </section>
+
+            <!-- 4. Valor para o usuário -->
+            <section id="valor" class="space-y-6 mt-16">
+              <header>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-2">Valor para o
+                  usuário</p>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-50">
+                  Jornada pensada para reduzir fricção e aumentar bem-estar
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
+                  A Break Page foi desenhada para minimizar o esforço cognitivo e a fricção na jornada do usuário.
+                  O pareamento inteligente de IA elimina a necessidade de buscar manualmente por parceiros, enquanto
+                  o design minimalista facilita a tomada de decisão em momentos de pausa.
+                </p>
+              </header>
+              <div class="grid gap-4 md:grid-cols-3 text-[11px] text-slate-700 dark:text-slate-300">
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Entrada: Descoberta</h3>
+                  <p>
+                    Usuário acessa a Lumora, clica em "Break" e vê imediatamente as atividades disponíveis com
+                    descrições claras
+                    e ícones intuitivos. O objetivo é compreender as opções em menos de 3 segundos.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Interação: Pareamento</h3>
+                  <p>
+                    Após escolher uma atividade, o sistema de IA busca automaticamente parceiros compatíveis.
+                    O usuário recebe feedback em tempo real e pode confirmar ou cancelar sem penalidades.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                  <h3 class="font-semibold mb-1 text-slate-900 dark:text-slate-100">Resultado: Conexão</h3>
+                  <p>
+                    Com um parceiro encontrado, o usuário inicia a atividade. Após a conclusão, o sistema oferece
+                    opção de repetir, explorar outras atividades ou voltar ao trabalho, mantendo o momentum.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5. Prompt de IA -->
+            <section id="prompt-ia" class="space-y-4 mt-16">
+              <header>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-2">Prompt de IA</p>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-50">
+                  Prompt utilizado para gerar a imagem conceitual
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
+                  A imagem principal deste estudo de UX &amp; UI foi gerada com IA generativa, reforçando o conceito de
+                  bem-estar corporativo, tecnologia e conexão humana. O prompt foi elaborado para representar o cenário
+                  de trabalhadores em home office conectados pela plataforma Lumora.
+                </p>
+              </header>
+              <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-2">Prompt
+                  utilizado</p>
+                <pre
+                  class="text-xs text-slate-900 dark:text-slate-200 whitespace-pre-wrap font-mono bg-slate-100 dark:bg-slate-900 rounded-xl p-3 border border-slate-200 dark:border-slate-700">
+"Ilustração digital em estilo moderno e clean, formato horizontal, para uma página web sobre uma plataforma chamada
+Lumora, focada em melhorar a experiência de trabalhadores em home office. Mostrar pessoas trabalhando em casa em
+ambientes diferentes (quartos, salas, escritórios pequenos), cada uma em seu notebook, mas claramente conectadas entre
+si por linhas de luz suaves, bolhas de chat e pequenas janelas de chamada de vídeo. A cena deve transmitir sensação de
+acolhimento, pertencimento e boa comunicação: algumas pessoas sorrindo em uma videoconferência, outras reagindo a
+mensagens, uma pessoa recebendo uma notificação positiva na tela. No centro da composição, um “hub” digital abstrato que
+simboliza a Lumora, como um círculo ou auréola de luz suave, irradiando conexões entre todos, sem usar logotipo real.
+Clima visual: caloroso e otimista, mostrando que ninguém está sozinho mesmo trabalhando em casa. Paleta com tons de azul
+e lilás para tecnologia, combinados com toques de amarelo ou laranja suave para representar luz, cuidado e proximidade
+humana. Fundo limpo, com poucos elementos, estilo semi-flat ou flat 3D, com boa legibilidade para uso em site. Evitar
+clichês corporativos como aperto de mãos, lâmpadas genéricas e pessoas engravatadas. A imagem deve representar bem-estar
+no home office, comunicação fluida, conexão emocional e comunidade entre trabalhadores remotos."
+        </pre>
+              </div>
+            </section>
+
+            <!-- 6. Imagem gerada -->
+            <section id="imagem-ia" class="space-y-4 mt-16 mb-4">
+              <header>
+                <p class="text-xs uppercase tracking-[0.22em] text-blue-500 dark:text-blue-400 mb-2">Imagem gerada</p>
+                <h2 class="text-xl md:text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-50">
+                  Visual conceitual da Break Page
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
+                  A imagem abaixo representa visualmente o conceito da Break Page do Lumora, destacando a interconexão
+                  entre profissionais através de IA e bem-estar. Ela pode ser utilizada na apresentação em slides,
+                  como referência de direção de arte e em materiais de comunicação interna sobre a funcionalidade.
+                </p>
+              </header>
+              <figure
+                class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+                <img src="./uxui/img/imagem.png"
+                  alt="Imagem conceitual gerada por IA representando dois profissionais conectados por IA em atividades de bem-estar corporativo"
+                  class="w-full object-cover">
+                <figcaption
+                  class="text-[11px] text-slate-500 dark:text-slate-400 px-4 py-2 border-t border-slate-200 dark:border-slate-700">
+                  Mockup gerado com IA para representar o clima visual e conceitual da Break Page do Lumora.
+                </figcaption>
+              </figure>
+            </section>
+
+          </div>
+        </section>
+
+
+
+        <!-- Break Page -->
+        <section id="break-page" class="page-content hidden p-4 md:p-6">
+          <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Break - Atividades em Grupo</h1>
+
+            <!-- Activities Grid -->
+            <div id="activities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              <!-- Activities will be rendered here -->
+            </div>
+
+            <!-- AI Matching Section -->
+            <div class="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-6">
+              <h2 class="text-xl font-bold mb-4">Encontrar Companheiros para Break</h2>
+              <p class="text-slate-600 dark:text-slate-400 mb-4">Nossa IA encontra pessoas compatíveis para fazer
+                atividades juntos</p>
+              <button id="findMatchBtn"
+                class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">Encontrar
+                Compatíveis</button>
+              <div id="match-results" class="mt-6 space-y-3">
+                <!-- Match results will be rendered here -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Página de Perfil -->
+        <section id="profile-page" class="page-content hidden">
+          <div class="max-w-md md:max-w-3xl mx-auto">
+            <div
+              class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm">
+              <!-- Header com gradiente azul e foto -->
+              <div class="relative h-44 bg-gradient-to-b from-sky-400 via-blue-500 to-blue-700">
+                <!-- Botão voltar -->
+                <button type="button"
+                  class="absolute top-4 left-4 inline-flex items-center text-sm text-white/80 hover:text-white"
+                  onclick="window.app && window.app.navigateTo('feed')">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                    </path>
+                  </svg>
+                  Voltar
+                </button>
+
+                <!-- Foto de perfil central, sobre o gradiente -->
+                <div class="absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2">
+                  <div class="relative w-28 h-28">
+                    <img id="profile-photo"
+                      class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg hidden"
+                      alt="Foto de perfil">
+                    <div id="profile-initials"
+                      class="w-28 h-28 rounded-full border-4 border-white shadow-lg bg-slate-900/80 flex items-center justify-center text-3xl font-semibold text-white">
+                      U
+                    </div>
+
+                    <!-- Botão de editar foto -->
+                    <button id="profilePhotoButton" type="button"
+                      class="absolute bottom-1 right-1 w-8 h-8 rounded-full bg-white text-slate-700 shadow flex items-center justify-center hover:bg-slate-100">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15.232 5.232l3.536 3.536M4 20h4.586a1 1 0 00.707-.293l9.439-9.439a1 1 0 000-1.414l-3.586-3.586a1 1 0 00-1.414 0L4 14.586V20z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <input type="file" id="profilePhotoInput" accept="image/*" class="hidden">
+              </div>
+
+              <!-- Card branco que começa logo abaixo da foto (estilo layout referência) -->
+              <div class="px-6 pb-8 pt-16 bg-slate-50 dark:bg-slate-900">
+                <div class="max-w-xl mx-auto">
+                  <!-- Nome + usuário + engrenagem, igual header do cartão da Clara -->
+                  <div class="flex items-start justify-between mb-4">
+                    <div>
+                      <h2 id="profile-display-name" class="text-lg font-bold text-slate-900 dark:text-slate-50">
+                        Seu nome
+                      </h2>
+                      <p id="profile-display-username" class="text-xs text-slate-500 dark:text-slate-400">
+                        @usuario
+                      </p>
+                    </div>
+                    <button type="button"
+                      class="mt-1 inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.89 3.31.876 2.42 2.42a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.89 1.543-.876 3.31-2.42 2.42a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.89-3.31-.876-2.42-2.42a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.89-1.543.876-3.31 2.42-2.42.996.575 2.247.104 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Formulário de dados (layout em coluna, como o exemplo) -->
+                  <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 md:p-6 shadow-sm">
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                      Edite os dados que seu time vê na Lumora.
+                    </p>
+
+                    <form class="space-y-4">
+                      <div>
+                        <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                          Nome completo
+                        </label>
+                        <input id="profile-fullname" type="text"
+                          class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      </div>
+
+                      <div>
+                        <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                          Usuário
+                        </label>
+                        <div class="flex items-center gap-2">
+                          <span
+                            class="px-2 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 text-xs text-slate-500 dark:text-slate-400">@</span>
+                          <input id="profile-username" type="text"
+                            class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                      </div>
+
+                      <div class="grid gap-3 md:grid-cols-2">
+                        <div>
+                          <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                            Cargo
+                          </label>
+                          <input id="profile-role" type="text"
+                            class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                          <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                            Departamento
+                          </label>
+                          <input id="profile-department" type="text"
+                            class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                      </div>
+
+                      <div>
+                        <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                          Localização
+                        </label>
+                        <input id="profile-location" type="text" placeholder="Ex.: São Paulo, Brasil"
+                          class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      </div>
+
+                      <div>
+                        <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                          E-mail
+                        </label>
+                        <input id="profile-email" type="email"
+                          class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      </div>
+
+                      <div>
+                        <label class="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                          Sobre você
+                        </label>
+                        <textarea id="profile-bio" rows="3"
+                          class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-900 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                      </div>
+
+                      <div class="pt-2 flex justify-end">
+                        <button id="profileSaveBtn" type="button"
+                          class="inline-flex items-center px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors">
+                          Salvar alterações
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <!-- Linha de apoio com cargo/departamento, estilo legenda -->
+                  <div class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+                    <p id="profile-display-role" class="font-medium text-slate-700 dark:text-slate-200">
+                      Seu cargo
+                    </p>
+                    <p id="profile-display-dept">
+                      Departamento
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <!-- Chat Page -->
+        <section id="chat-page" class="page-content hidden p-4 md:p-6 flex flex-col h-full">
+          <div class="max-w-2xl mx-auto w-full flex flex-col h-full">
+            <h1 class="text-3xl font-bold mb-6">Chat</h1>
+
+            <!-- Chat Container -->
+            <div
+              class="flex-1 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 flex flex-col">
+              <!-- Messages -->
+              <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- Messages will be rendered here -->
+              </div>
+
+              <!-- Message Input -->
+              <div class="border-t border-slate-200 dark:border-slate-700 p-4">
+                <div class="flex gap-2">
+                  <input id="chatInput" type="text" placeholder="Digite uma mensagem..."
+                    class="flex-1 px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
+                  <button id="sendChatBtn"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">Enviar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <script src="js/app.js"></script>
+</body>
+
+</html>

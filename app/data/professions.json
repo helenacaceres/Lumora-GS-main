@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "titulo": "Analista de Dados de Rotas Globais",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Analisa dados de voos, navios e rotas rodoviárias para encontrar caminhos mais rápidos, baratos e estáveis para exportações e importações."
+  },
+  {
+    "id": 2,
+    "titulo": "Especialista em Otimização de Malha Logística",
+    "area": "Operações & Logística",
+    "demanda": "Alta",
+    "descricao": "Desenha a malha logística combinando transporte aéreo, marítimo e rodoviário para reduzir tempo de trânsito e custo de frete."
+  },
+  {
+    "id": 3,
+    "titulo": "Gestor de Embarques Sustentáveis",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Alta",
+    "descricao": "Planeja operações de frete com menor impacto ambiental, equilibrando emissões de carbono, custos e prazos de entrega."
+  },
+  {
+    "id": 4,
+    "titulo": "Arquiteto de Soluções em Comércio Exterior",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Cria soluções completas de Comex para empresas, conectando transporte, seguro, desembaraço e meios de pagamento internacional."
+  },
+  {
+    "id": 5,
+    "titulo": "Coordenador de Experiência do Cliente em Logística",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Alta",
+    "descricao": "Cuida da jornada do cliente de frete internacional, garantindo comunicação clara, proativa e sem surpresas desagradáveis."
+  },
+  {
+    "id": 6,
+    "titulo": "Analista de Risco Cambial & Trade Finance",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Média",
+    "descricao": "Avalia riscos de câmbio, prazos de pagamento e instrumentos financeiros para tornar exportações mais seguras e previsíveis."
+  },
+  {
+    "id": 7,
+    "titulo": "Especialista em LGPD & Dados Aduaneiros",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Alta",
+    "descricao": "Garante que dados de clientes, documentos de embarque e integrações com sistemas governamentais estejam em conformidade com a LGPD."
+  },
+  {
+    "id": 8,
+    "titulo": "Gestor de Marketplace de Fretes Internacionais",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Administra plataformas digitais que conectam embarcadores, agentes de cargas e transportadoras em um ambiente de comparação de fretes."
+  },
+  {
+    "id": 9,
+    "titulo": "Planejador de Capacidade em Transporte Aéreo",
+    "area": "Operações & Logística",
+    "demanda": "Média",
+    "descricao": "Planeja o uso de espaço em aeronaves cargueiras e voos comerciais, priorizando cargas de alto valor e urgência."
+  },
+  {
+    "id": 10,
+    "titulo": "Engenheiro de Integrações Logísticas (APIs)",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Constrói integrações entre sistemas de agentes de cargas, transportadoras, portos, aeroportos e plataformas de clientes via APIs."
+  },
+  {
+    "id": 11,
+    "titulo": "Analista de Inteligência de Mercado em Comex",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Mapeia tendências de mercado, novos corredores logísticos e oportunidades para PMEs entrarem em rotas globais."
+  },
+  {
+    "id": 12,
+    "titulo": "Especialista em Carbono & Logística Verde",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Alta",
+    "descricao": "Calcula emissões de carbono das operações e propõe alternativas mais limpas para o transporte internacional de cargas."
+  },
+  {
+    "id": 13,
+    "titulo": "Designer de Experiências Digitais para Carga",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Média",
+    "descricao": "Desenha interfaces e fluxos digitais para que clientes acompanhem suas cargas de forma simples, visual e intuitiva."
+  },
+  {
+    "id": 14,
+    "titulo": "Gestor de Parcerias Globais com Armadores & Cias Aéreas",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Média",
+    "descricao": "Negocia acordos estratégicos com companhias aéreas, armadores e operadores logísticos para garantir capacidade e tarifas competitivas."
+  },
+  {
+    "id": 15,
+    "titulo": "Coordenador de Performance de Operações Portuárias",
+    "area": "Operações & Logística",
+    "demanda": "Média",
+    "descricao": "Acompanha o desempenho de operações em portos e terminais, reduzindo filas, demurrage e custos extras."
+  },
+  {
+    "id": 16,
+    "titulo": "Analista de Tracking e Visibilidade em Tempo Real",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Implementa e monitora sistemas de rastreamento para que clientes e equipes visualizem, em tempo real, onde está cada embarque."
+  },
+  {
+    "id": 17,
+    "titulo": "Especialista em Segurança Cibernética para Cadeia Logística",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Protege sistemas logísticos contra ataques digitais que possam paralisar operações ou expor dados sensíveis de clientes."
+  },
+  {
+    "id": 18,
+    "titulo": "Consultor de Internacionalização para PMEs",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Ajuda pequenas e médias empresas a estruturarem seus primeiros embarques internacionais, do planejamento ao pós-venda."
+  },
+  {
+    "id": 19,
+    "titulo": "Curador de Conteúdo Educacional em Comex",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Média",
+    "descricao": "Produz trilhas de conteúdo, cursos rápidos e materiais didáticos para explicar frete internacional de forma simples."
+  },
+  {
+    "id": 20,
+    "titulo": "Analista de KPI em Logística Reversa Global",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Média",
+    "descricao": "Monitora indicadores de devoluções internacionais, reaproveitamento de embalagens e destino sustentável de produtos."
+  },
+  {
+    "id": 21,
+    "titulo": "Gestor de Programas de Credenciados em Frete",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Estrutura e gerencia redes de parceiros credenciados que vendem fretes internacionais de forma consultiva pelo mundo."
+  },
+  {
+    "id": 22,
+    "titulo": "Facilitador de Inovação em Operações Logísticas",
+    "area": "Operações & Logística",
+    "demanda": "Média",
+    "descricao": "Lidera iniciativas de inovação em armazéns, terminais e escritórios operacionais, testando novas tecnologias e processos."
+  },
+  {
+    "id": 23,
+    "titulo": "Especialista em UX de Plataformas de Frete",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Alta",
+    "descricao": "Garante que plataformas de cotação e gestão de fretes sejam simples, rápidas e agradáveis para o usuário final."
+  },
+  {
+    "id": 24,
+    "titulo": "Cientista de Dados em Cadeia de Suprimentos",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Usa modelos estatísticos e de machine learning para prever demanda, otimizar estoques e antecipar gargalos logísticos."
+  },
+  {
+    "id": 25,
+    "titulo": "Coordenador de Projetos de Digitalização Aduaneira",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Média",
+    "descricao": "Lidera projetos para digitalizar processos aduaneiros, reduzindo papelada, erros e o tempo na liberação de cargas."
+  },
+  {
+    "id": 26,
+    "titulo": "Analista de Tarifas & Simulações de Freight Cost",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Desenvolve e atualiza modelos de cálculo de frete, comparando cenários de rota, modal e sazonalidade."
+  },
+  {
+    "id": 27,
+    "titulo": "Gestor de SLA e Qualidade de Serviço em Comex",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Média",
+    "descricao": "Monitora o cumprimento de prazos, respostas e entregas, garantindo que SLAs acordados sejam realmente cumpridos."
+  },
+  {
+    "id": 28,
+    "titulo": "Especialista em Multimodalidade & Intermodalidade",
+    "area": "Operações & Logística",
+    "demanda": "Alta",
+    "descricao": "Combina diferentes modais de transporte (rodoviário, aéreo, marítimo, ferroviário) para criar operações mais eficientes."
+  },
+  {
+    "id": 29,
+    "titulo": "Consultor de Compliance e Sanções Internacionais",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Alta",
+    "descricao": "Garante que embarques e negociações estejam alinhados a sanções, embargos e listas de restrição de países e empresas."
+  },
+  {
+    "id": 30,
+    "titulo": "Estrategista de Rotas para E-commerce Cross-border",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Alta",
+    "descricao": "Desenha rotas e acordos específicos para e-commerces que vendem para vários países, focando em prazo e rastreio."
+  },
+  {
+    "id": 31,
+    "titulo": "Analista de Onboarding de Clientes em Plataformas de Frete",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Média",
+    "descricao": "Acompanha novos clientes que começam a usar uma plataforma de fretes, garantindo que entendam rapidamente as funções-chave."
+  },
+  {
+    "id": 32,
+    "titulo": "Especialista em Automação de Documentos de Embarque",
+    "area": "Tecnologia & Dados",
+    "demanda": "Alta",
+    "descricao": "Automatiza a geração de AWB, BL, faturas e packing lists, reduzindo retrabalho manual e risco de erros nos dados."
+  },
+  {
+    "id": 33,
+    "titulo": "Planejador de Capacidade em Armazéns Inteligentes",
+    "area": "Operações & Logística",
+    "demanda": "Média",
+    "descricao": "Dimensiona espaço, fluxo e tecnologia de armazéns que recebem e despacham cargas internacionais diariamente."
+  },
+  {
+    "id": 34,
+    "titulo": "Gestor de Relacionamento com Terminais & Depósitos",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Baixa",
+    "descricao": "Constrói relações estratégicas com terminais alfandegados e depósitos, garantindo prioridade e boas condições operacionais."
+  },
+  {
+    "id": 35,
+    "titulo": "Analista de Programas de Fidelidade em Logística",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Baixa",
+    "descricao": "Cria programas de pontos, benefícios e vantagens para clientes que embarcam com frequência em determinada rota ou modal."
+  },
+  {
+    "id": 36,
+    "titulo": "Especialista em Sustentabilidade Social na Cadeia Logística",
+    "area": "Sustentabilidade & Compliance",
+    "demanda": "Média",
+    "descricao": "Avalia condições de trabalho, impacto social e projetos de inclusão em toda a cadeia logística global."
+  },
+  {
+    "id": 37,
+    "titulo": "Consultor de Estratégia de Nearshoring & Friendshoring",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Média",
+    "descricao": "Ajuda empresas a redesenhar cadeias de suprimentos aproximando produção e consumo para reduzir riscos geopolíticos."
+  },
+  {
+    "id": 38,
+    "titulo": "Coordenador de Treinamentos em Comércio Exterior",
+    "area": "Experiência do Cliente & Pessoas",
+    "demanda": "Baixa",
+    "descricao": "Organiza treinamentos recorrentes para equipes internas, parceiros e clientes sobre práticas de Comex e logística."
+  },
+  {
+    "id": 39,
+    "titulo": "Analista de Propostas Técnicas para Grandes Contas Logísticas",
+    "area": "Negócios & Estratégia Global",
+    "demanda": "Média",
+    "descricao": "Elabora propostas completas de solução logística para grandes clientes, com estudo de rotas, custos e diferenciais competitivos."
+  },
+  {
+    "id": 40,
+    "titulo": "Pesquisador de Tendências em Mobilidade de Cargas",
+    "area": "Tecnologia & Dados",
+    "demanda": "Baixa",
+    "descricao": "Estuda novas tecnologias, modais e formatos de movimentação de cargas para antecipar oportunidades em logística internacional."
+  }
+]
